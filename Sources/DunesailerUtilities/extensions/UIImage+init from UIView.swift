@@ -1,6 +1,6 @@
 //  Created by B.T. Franklin on 4/30/18
 
-#if os(iOS)
+#if canImport(UIKit)
 import UIKit
 
 extension UIImage {

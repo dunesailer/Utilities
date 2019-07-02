@@ -1,6 +1,6 @@
 //  Created by B.T. Franklin on 8/27/17.
 
-#if os(iOS)
+#if canImport(UIKit)
     import UIKit
 #elseif os(macOS)
     import AppKit

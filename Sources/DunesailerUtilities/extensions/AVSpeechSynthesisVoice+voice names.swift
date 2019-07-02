@@ -1,6 +1,6 @@
 //  Created by B.T. Franklin on 1/1/18.
 
-#if os(iOS)
+#if canImport(AVFoundation)
 
 import AVFoundation
 
