@@ -3,6 +3,7 @@
 #if canImport(UIKit)
 import UIKit
 
+@available(tvOS 10.0, *)
 extension UIImage {
     public convenience init(view: UIView) {
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
