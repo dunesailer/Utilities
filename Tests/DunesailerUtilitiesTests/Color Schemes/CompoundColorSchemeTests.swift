@@ -16,6 +16,7 @@ class CompoundColorSchemeTests: XCTestCase {
         XCTAssertEqual(testThemeHSBAColor, testColorScheme.themeColor)
     }
     
+    #if canImport(AppKit)
     func testGetColors() {
         let testThemeColor = NSColor(deviceHue: CGFloat(0.99),
                                      saturation: CGFloat(0.8),
@@ -52,5 +53,5 @@ class CompoundColorSchemeTests: XCTestCase {
         XCTAssertEqual(0.60, testColors[4].brightnessComponent, accuracy: 0.00001)
         XCTAssertEqual(1.00, testColors[4].alphaComponent, accuracy: 0.00001)
     }
-
+    #endif
 }

@@ -20,6 +20,7 @@ class HSBAColorTests: XCTestCase {
         XCTAssertNotEqual(hsbaColor2, hsbaColor3)
     }
     
+    #if canImport(AppKit)
     func testConversionToNSColor() {
         let testHue: CGFloat = 0.75
         let testSaturation: CGFloat = 0.43
@@ -39,6 +40,7 @@ class HSBAColorTests: XCTestCase {
         
         XCTAssertEqual(hsbaColor, convertedHSBAColor)
     }
+    #endif
     
     func testHueAdjustment() {
         let testHue: CGFloat = 0.50
