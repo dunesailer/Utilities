@@ -13,12 +13,15 @@ class CrossFadeSegue: UIStoryboardSegue {
         sourceViewControllerView.addSubview(destinationViewControllerView);
         
         // Animate the fade, remove the destination view on completion and present the full view controller
-        UIView.animate(withDuration: 1, animations: {
-            destinationViewControllerView.alpha = 1;
-        }, completion: { (finished) in
-            destinationViewControllerView.removeFromSuperview()
-            self.source.present(self.destination, animated: false, completion: nil)
-        })
+        UIView.animate(withDuration: 1,
+            animations: {
+                destinationViewControllerView.alpha = 1;
+            },
+            completion: { (finished) in
+                destinationViewControllerView.removeFromSuperview()
+                self.source.present(self.destination, animated: false, completion: nil)
+            }
+        )
     }
 }
 
