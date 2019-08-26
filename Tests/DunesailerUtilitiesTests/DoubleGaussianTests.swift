@@ -7,11 +7,11 @@ class DoubleGaussianTests: XCTestCase {
 
     func testRandomGaussian() {
         
-        var minValue: Double = 100, maxValue: Double = -100
+        var minValue: Double = .infinity, maxValue: Double = -.infinity
         var total: Double = 0
         for _ in 0...1000 {
             let randomGaussian = Double.randomGaussian()
-            
+        
             if randomGaussian < minValue {
                 minValue = randomGaussian
             }
@@ -43,11 +43,11 @@ class DoubleGaussianTests: XCTestCase {
         let standardDeviation: Double = 100
         let mean: Double = 500
         
-        var minValue: Double = mean*100, maxValue: Double = -mean*100
+        var minValue: Double = .infinity, maxValue: Double = -.infinity
         var total: Double = 0
         for _ in 0...1000 {
             let randomGaussian = Double.randomGaussian(withStandardDeviation: standardDeviation, withMean: mean)
-            
+        
             if randomGaussian < minValue {
                 minValue = randomGaussian
             }
@@ -56,6 +56,7 @@ class DoubleGaussianTests: XCTestCase {
             }
             
             total += randomGaussian
+            print("adding \(randomGaussian), bringing total to \(total)")
         }
         
         let resultingAverage = total / 1000
@@ -75,12 +76,62 @@ class DoubleGaussianTests: XCTestCase {
         XCTAssertGreaterThanOrEqual(1000, maxValue)
     }
     
-    func testPerformanceRandomGaussian() {
+    func testRandomGaussianWithParamsAndBounds() {
+        let standardDeviation: Double = 100
+        let mean: Double = 500
+        let lowerBound: Double = 400
+        let upperBound: Double = 650
+        
+        var minValue: Double = .infinity, maxValue: Double = -.infinity
+        var total: Double = 0
+        for _ in 0...1000 {
+            let randomGaussian = Double.randomGaussian(withStandardDeviation: standardDeviation,
+                                                       withMean: mean,
+                                                       withMaximum: upperBound,
+                                                       withMinimum: lowerBound)
+        
+            if randomGaussian < minValue {
+                minValue = randomGaussian
+            }
+            if randomGaussian > maxValue {
+                maxValue = randomGaussian
+            }
+            
+            total += randomGaussian
+        }
+        
+        print("max: \(maxValue)")
+        print("min: \(minValue)")
+        
+        XCTAssertLessThanOrEqual(lowerBound, minValue)
+        XCTAssertGreaterThanOrEqual(mean, minValue)
+        
+        XCTAssertLessThanOrEqual(mean, maxValue)
+        XCTAssertGreaterThanOrEqual(upperBound, maxValue)
+    }
+    
+    func testRandomGaussianPerformance() {
         self.measure {
             for _ in 0...1000 {
                 _ = Double.randomGaussian()
             }
         }
+    }
+
+    func testRandomGaussianWithParamsAndBoundsPerformance() {
         
+        let standardDeviation: Double = 100
+        let mean: Double = 500
+        let lowerBound: Double = 400
+        let upperBound: Double = 650
+        
+        self.measure {
+            for _ in 0...1000 {
+                _ = Double.randomGaussian(withStandardDeviation: standardDeviation,
+                                          withMean: mean,
+                                          withMaximum: upperBound,
+                                          withMinimum: lowerBound)
+            }
+        }
     }
 }
