@@ -45,7 +45,7 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
     }
     
     // MARK: Non-mutating Methods
-    public func selectItem() -> Item {
+    public func randomItem() -> Item {
         
         let randomNumber = Int.random(in: 0...total)
         

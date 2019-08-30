@@ -43,12 +43,12 @@ class ProbabilityGroupTests: XCTestCase {
             testItem:100
         ])
         
-        let testResultItem = testGroup.selectItem()
+        let testResultItem = testGroup.randomItem()
         XCTAssertNotNil(testResultItem)
         XCTAssertEqual(testItem, testResultItem)
     }
     
-    func testSelectRandomItem() {
+    func testRandomItem() {
         
         let itemDictionary = [
             "One":25,
@@ -59,7 +59,7 @@ class ProbabilityGroupTests: XCTestCase {
         let testGroup = ProbabilityGroup(itemDictionary)
         let itemNames = Set(itemDictionary.keys)
         
-        let testResultItem = testGroup.selectItem()
+        let testResultItem = testGroup.randomItem()
         XCTAssertNotNil(testResultItem)
         XCTAssert(itemNames.contains(testResultItem))
     }
@@ -132,7 +132,7 @@ class ProbabilityGroupTests: XCTestCase {
         let decodedGroup = try! decoder.decode(ProbabilityGroup<String>.self, from: encoded)
         
         let itemNames = Set(itemDictionary.keys)
-        let testResultItem = decodedGroup.selectItem()
+        let testResultItem = decodedGroup.randomItem()
         XCTAssertNotNil(testResultItem)
         XCTAssert(itemNames.contains(testResultItem))
     }
@@ -155,7 +155,7 @@ class ProbabilityGroupTests: XCTestCase {
         
         self.measure {
             for _ in 1...1000 {
-                _ = testGroup.selectItem()
+                _ = testGroup.randomItem()
             }
         }
     }
