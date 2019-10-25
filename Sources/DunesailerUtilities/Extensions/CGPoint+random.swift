@@ -5,7 +5,7 @@ import CoreGraphics
 extension CGPoint {
     
     public static func random(inX xRange: ClosedRange<CGFloat>, inY yRange: ClosedRange<CGFloat>) -> CGPoint {
-        return CGPoint(x: CGFloat.random(in: xRange), y: CGFloat.random(in: xRange))
+        return CGPoint(x: CGFloat.random(in: xRange), y: CGFloat.random(in: yRange))
     }
     
     public static func random(inX xRange: ClosedRange<Double>, inY yRange: ClosedRange<Double>) -> CGPoint {
