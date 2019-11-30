@@ -4,13 +4,11 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
         case probabilitiesByItem = "probabilities"
     }
     
-    // MARK: Constants
     public let probabilitiesByItem: [Item: Int]
     private let items: [Item]
     private let itemPositions: [Int]
     private let total: Int
     
-    // MARK: Initializers
     public init(_ probabilitiesByItem: [Item: Int], enforcePercent: Bool = true) {
         precondition(!probabilitiesByItem.isEmpty, "Must provide at least one item.")
         
@@ -44,7 +42,6 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
         self.init(probabilitiesByItem, enforcePercent: false)
     }
     
-    // MARK: Non-mutating Methods
     public func randomItem() -> Item {
         
         let randomNumber = Int.random(in: 0...total)

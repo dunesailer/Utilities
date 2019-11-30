@@ -2,21 +2,15 @@ import Foundation
 
 public class LRUCache<ValueType: AnyObject> {
     
-    // MARK: Constants
     public let capacity: Int
-    
-    // MARK: Properties
     private var valuesByID: [ObjectIdentifier: ValueType]
     private var valueIDs: [ObjectIdentifier]
     
-    // MARK: Computed Properties
     public var count: Int {
         return valueIDs.count
     }
     
-    // MARK: Initializers
     public init(capacity: Int) {
-        
         precondition(capacity > 0, "Capacity must be a positive number. Provided value: \(capacity)")
         self.capacity = capacity
         
@@ -24,7 +18,6 @@ public class LRUCache<ValueType: AnyObject> {
         valueIDs = []
     }
     
-    // MARK: Methods
     public func store(value: ValueType) {
         
         let valueID = ObjectIdentifier(value)

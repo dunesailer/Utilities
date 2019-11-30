@@ -8,13 +8,11 @@ public class RandomItemBag<Item: Hashable & Codable>: Codable {
         case itemCounts = "itemCounts"
     }
 
-    // MARK: Properties
     private var itemCounts: [Item:Int]
     private var items: [Item] = []
     private var calculatedItemGroupPositions: [Int] = []
     private var calculatedItemGroupPositionsValid = false
     
-    // MARK: Computed Properties
     public var count: Int {
         var countSum = 0
         for itemCount in itemCounts.values {
@@ -23,7 +21,6 @@ public class RandomItemBag<Item: Hashable & Codable>: Codable {
         return countSum
     }
     
-    // MARK: Initializers
     public init() {
         self.itemCounts = [:]
     }
@@ -32,26 +29,12 @@ public class RandomItemBag<Item: Hashable & Codable>: Codable {
         self.itemCounts = itemCounts
     }
     
-    // MARK: Codable Implementation
-    required public init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let itemCounts = try values.decode([Item: Int].self, forKey: .itemCounts)
-        self.itemCounts = itemCounts
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(itemCounts, forKey: .itemCounts)
-    }
-
-    // MARK: Private Methods
     private func invalidateCalculatedItemPositions() {
         calculatedItemGroupPositionsValid = false
         items = []
         calculatedItemGroupPositions = []
     }
     
-    // MARK: Public Methods
     public func add(_ item: Item, withCount count: Int) {
         itemCounts[item] = count
         invalidateCalculatedItemPositions()
@@ -90,6 +73,18 @@ public class RandomItemBag<Item: Hashable & Codable>: Codable {
         return items.last!
     }
     
+    // MARK: Codable Implementation
+    required public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        let itemCounts = try values.decode([Item: Int].self, forKey: .itemCounts)
+        self.itemCounts = itemCounts
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(itemCounts, forKey: .itemCounts)
+    }
+
 }
 
 extension RandomItemBag: Hashable {
