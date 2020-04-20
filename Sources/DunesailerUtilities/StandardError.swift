@@ -1,5 +1,5 @@
 public enum StandardError: Error {
-    case invalidParameterError(String)
-    case illegalOperationError(String)
-    case operationFailedError(String)
+    case invalidParameterError(message: String)
+    case illegalOperationError(message: String)
+    case operationFailedError(message: String)
 }

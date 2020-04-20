@@ -21,7 +21,7 @@ class BoolRandomProbabilityTests: XCTestCase {
                 trueCount += 1
             }
         }
-        XCTAssertTrue((175...225).contains(trueCount), "trueCount was \(trueCount)")
+        XCTAssertTrue((150...250).contains(trueCount), "trueCount was \(trueCount)")
         
         // 50%
         trueCount = 0
@@ -31,7 +31,7 @@ class BoolRandomProbabilityTests: XCTestCase {
                 trueCount += 1
             }
         }
-        XCTAssertTrue((475...525).contains(trueCount), "trueCount was \(trueCount)")
+        XCTAssertTrue((450...550).contains(trueCount), "trueCount was \(trueCount)")
 
         // 75%
         trueCount = 0
@@ -41,7 +41,7 @@ class BoolRandomProbabilityTests: XCTestCase {
                 trueCount += 1
             }
         }
-        XCTAssertTrue((725...775).contains(trueCount), "trueCount was \(trueCount)")
+        XCTAssertTrue((700...800).contains(trueCount), "trueCount was \(trueCount)")
         
         // 100%
         for _ in 1...1000 {
