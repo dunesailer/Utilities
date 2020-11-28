@@ -1,3 +1,5 @@
+//  Created by B.T. Franklin on an unknown date prior to 2020
+
 import Foundation
 
 public class LRUCache<ValueType: AnyObject> {
@@ -11,7 +13,9 @@ public class LRUCache<ValueType: AnyObject> {
     }
     
     public init(capacity: Int) {
-        precondition(capacity > 0, "Capacity must be a positive number. Provided value: \(capacity)")
+        guard capacity > 0 else {
+            fatalError("LRUCache must have a capacity greater than 0. Requested capacity: \(capacity)")
+        }
         self.capacity = capacity
         
         valuesByID = [:]
@@ -44,7 +48,9 @@ public class LRUCache<ValueType: AnyObject> {
     }
     
     public func retrieve(at index: Int) -> ValueType {
-        precondition((0..<count).contains(index), "Index \(index) out of range. Allowed values are 0 - \(count-1).")
+        guard (0..<count).contains(index) else {
+            fatalError("Index \(index) out of range. Allowed values are 0 - \(count-1).")
+        }
         return valuesByID[valueIDs[index]]!
     }
     

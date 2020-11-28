@@ -1,3 +1,5 @@
+//  Created by B.T. Franklin on an unknown date prior to 2020
+
 public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
     
     enum CodingKeys: String, CodingKey {
@@ -5,12 +7,15 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
     }
     
     public let probabilitiesByItem: [Item: Int]
+    
     private let items: [Item]
     private let itemPositions: [Int]
     private let total: Int
     
     public init(_ probabilitiesByItem: [Item: Int], enforcePercent: Bool = true) {
-        precondition(!probabilitiesByItem.isEmpty, "Must provide at least one item.")
+        guard !probabilitiesByItem.isEmpty else {
+            fatalError("Must provide at least one item.")
+        }
         
         self.probabilitiesByItem = probabilitiesByItem
         
@@ -35,7 +40,9 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
     }
     
     public init(copying probabilityGroup: ProbabilityGroup, without item: Item) {
-        precondition(probabilityGroup.items.contains(item), "Probability group does not contain \(item)")
+        guard probabilityGroup.items.contains(item) else {
+            fatalError("Probability group does not contain \(item)")
+        }
         
         var probabilitiesByItem = probabilityGroup.probabilitiesByItem
         probabilitiesByItem[item] = nil
