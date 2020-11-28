@@ -56,7 +56,6 @@ class DoubleGaussianTests: XCTestCase {
             }
             
             total += randomGaussian
-            print("adding \(randomGaussian), bringing total to \(total)")
         }
         
         let resultingAverage = total / 1000
