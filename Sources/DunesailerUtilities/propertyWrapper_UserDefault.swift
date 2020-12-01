@@ -8,8 +8,7 @@ public struct UserDefault<T> {
 
     public let key: String
     public let defaultValue: T
-
-    public var container: UserDefaults = .standard
+    public let container: UserDefaults
 
     public var wrappedValue: T {
         get {
@@ -18,5 +17,11 @@ public struct UserDefault<T> {
         set {
             container.set(newValue, forKey: key)
         }
+    }
+
+    public init(key: String, defaultValue: T, container: UserDefaults = .standard) {
+        self.key = key
+        self.defaultValue = defaultValue
+        self.container = container
     }
 }
