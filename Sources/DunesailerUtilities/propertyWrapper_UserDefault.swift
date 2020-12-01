@@ -4,14 +4,14 @@
 import Foundation
 
 @propertyWrapper
-struct UserDefault<T> {
+public struct UserDefault<T> {
 
-    let key: String
-    let defaultValue: T
+    public let key: String
+    public let defaultValue: T
 
-    var container: UserDefaults = .standard
+    public var container: UserDefaults = .standard
 
-    var wrappedValue: T {
+    public var wrappedValue: T {
         get {
             return container.object(forKey: key) as? T ?? defaultValue
         }
