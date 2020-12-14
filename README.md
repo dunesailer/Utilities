@@ -13,9 +13,9 @@ The Dunesailer Utilities package is a standard Swift package, and can easily be 
 
 To include Dunesailer Utilities in another Swift Package Manager package, add it to the `dependencies` attribute defined in your `Package.swift` file. You can select the version using the `from` parameter. For example:
 ```
-	dependencies: [
-		.package(url: "https://github.com/dunesailer/Utilities.git", from: "0.9.2")
-	]
+dependencies: [
+	.package(url: "https://github.com/dunesailer/Utilities.git", from: "0.9.2")
+]
 ```
 
 
