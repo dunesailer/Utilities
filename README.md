@@ -3,7 +3,7 @@ Dunesailer Utilities
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/dunesailer/Utilities/blob/master/LICENSE)
 [![Platform](https://img.shields.io/badge/in-swift5.3-orange.svg)](https://github.com/apple/swift)
-![Swift](https://github.com/dunesailer/Utilities/workflows/Swift/badge.svg)
+![build](https://github.com/dunesailer/Utilities/workflows/build/badge.svg)
 
 The Dunesailer Utilities package provides a collection of utilities for use in projects developed in the Swift programming language. Though the functionality provided is driven by the specific needs of Dunesailer Research itself, we believe there is value to the broader programmming public contained therein, so we are pleased to make these available in a free and open source format.
 
