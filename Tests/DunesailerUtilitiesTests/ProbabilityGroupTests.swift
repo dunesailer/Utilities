@@ -3,7 +3,7 @@
 import XCTest
 @testable import DunesailerUtilities
 
-class ProbabilityGroupTests: XCTestCase {
+final class ProbabilityGroupTests: XCTestCase {
     
     func testInitializer() {
         

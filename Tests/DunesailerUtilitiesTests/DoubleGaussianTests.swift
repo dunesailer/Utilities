@@ -3,7 +3,7 @@
 import XCTest
 @testable import DunesailerUtilities
 
-class DoubleGaussianTests: XCTestCase {
+final class DoubleGaussianTests: XCTestCase {
 
     func testRandomGaussian() {
         

@@ -3,7 +3,7 @@
 import XCTest
 @testable import DunesailerUtilities
 
-class RandomItemBagTests: XCTestCase {
+final class RandomItemBagTests: XCTestCase {
     
     func testInitializers() {
         

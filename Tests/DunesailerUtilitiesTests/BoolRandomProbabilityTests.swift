@@ -3,7 +3,7 @@
 import XCTest
 @testable import DunesailerUtilities
 
-class BoolRandomProbabilityTests: XCTestCase {
+final class BoolRandomProbabilityTests: XCTestCase {
 
     func testRandomProbability() {
         

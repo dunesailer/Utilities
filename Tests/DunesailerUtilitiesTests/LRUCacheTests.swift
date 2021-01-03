@@ -3,7 +3,7 @@
 import XCTest
 @testable import DunesailerUtilities
 
-class LRUCacheTests: XCTestCase {
+final class LRUCacheTests: XCTestCase {
     
     class UniqueTestable {
         
