@@ -2,6 +2,10 @@
 
 extension String {
     public var startsWithVowel: Bool {
+        guard !self.isEmpty else {
+            return false
+        }
+
         switch self.lowercased()[self.startIndex] {
         case "a", "e", "i", "o", "u":
             return true
