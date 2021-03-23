@@ -20,7 +20,7 @@ final class LRUCacheTests: XCTestCase {
         XCTAssertEqual(5, cache.capacity)
         XCTAssertEqual(0, cache.count)
         
-        var uniqueTestables = [UniqueTestable]()
+        var uniqueTestables: [UniqueTestable] = []
         for value in 1...10 {
             uniqueTestables.append(UniqueTestable(value: value))
         }
@@ -60,7 +60,7 @@ final class LRUCacheTests: XCTestCase {
         XCTAssertEqual(500, cache.capacity)
         XCTAssertEqual(0, cache.count)
         
-        var uniqueTestables = [UniqueTestable]()
+        var uniqueTestables: [UniqueTestable] = []
         for value in 1...1000 {
             uniqueTestables.append(UniqueTestable(value: value))
         }
@@ -99,7 +99,7 @@ final class LRUCacheTests: XCTestCase {
         
         let cache = LRUCache<UniqueTestable>(capacity: 16)
         
-        var uniqueTestables = [UniqueTestable]()
+        var uniqueTestables: [UniqueTestable] = []
         for value in 1...32 {
             uniqueTestables.append(UniqueTestable(value: value))
         }
