@@ -39,16 +39,6 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
         self.total = currentPosition
     }
     
-    public init(copying probabilityGroup: ProbabilityGroup, without item: Item) {
-        guard probabilityGroup.items.contains(item) else {
-            fatalError("Probability group does not contain \(item)")
-        }
-        
-        var probabilitiesByItem = probabilityGroup.probabilitiesByItem
-        probabilitiesByItem[item] = nil
-        self.init(probabilitiesByItem, enforcePercent: false)
-    }
-    
     public func randomItem() -> Item {
         
         let randomNumber = Int.random(in: 0...total)
@@ -60,6 +50,16 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
         }
         
         return items.last!
+    }
+
+    public static func copy(_ probabilityGroup: ProbabilityGroup, without item: Item) -> ProbabilityGroup {
+        guard probabilityGroup.items.contains(item) else {
+            fatalError("ProbabilityGroup does not contain \(item)")
+        }
+
+        var probabilitiesByItem = probabilityGroup.probabilitiesByItem
+        probabilitiesByItem[item] = nil
+        return ProbabilityGroup(probabilitiesByItem, enforcePercent: false)
     }
 }
 
