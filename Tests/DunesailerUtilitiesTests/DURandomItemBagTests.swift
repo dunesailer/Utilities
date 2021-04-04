@@ -3,25 +3,25 @@
 import XCTest
 @testable import DunesailerUtilities
 
-final class RandomItemBagTests: XCTestCase {
+final class DURandomItemBagTests: XCTestCase {
     
     func testInitializers() {
         
-        let emptyBag = RandomItemBag<String>()
+        let emptyBag = DURandomItemBag<String>()
         XCTAssertNotNil(emptyBag)
 
-        let oneItemBag = RandomItemBag([
+        let oneItemBag = DURandomItemBag([
             "One":25
         ])
         XCTAssertNotNil(oneItemBag)
         
-        let twoItemBag = RandomItemBag([
+        let twoItemBag = DURandomItemBag([
             "One":25,
             "Two":25
         ])
         XCTAssertNotNil(twoItemBag)
         
-        let fourItemGroup = RandomItemBag([
+        let fourItemGroup = DURandomItemBag([
             "One":45,
             "Two":35,
             "Three":17,
@@ -32,7 +32,7 @@ final class RandomItemBagTests: XCTestCase {
     
     func testRandomItem() {
         
-        let testBag = RandomItemBag<String>()
+        let testBag = DURandomItemBag<String>()
         XCTAssertNil(testBag.randomItem())
         
         let itemNames = [
@@ -55,7 +55,7 @@ final class RandomItemBagTests: XCTestCase {
     
     func testRemoveAll() {
         
-        let testBag = RandomItemBag<String>()
+        let testBag = DURandomItemBag<String>()
         
         var itemNames = [
             "One",
@@ -85,16 +85,16 @@ final class RandomItemBagTests: XCTestCase {
             "Two":25,
             "Three":25
         ]
-        let testBag1 = RandomItemBag(itemDictionary1)
+        let testBag1 = DURandomItemBag(itemDictionary1)
         
         let itemDictionary2 = [
             "Four":30,
             "Five":15,
             "Six":25
         ]
-        let testBag2 = RandomItemBag(itemDictionary2)
+        let testBag2 = DURandomItemBag(itemDictionary2)
         
-        var bagSet = Set<RandomItemBag<String>>()
+        var bagSet = Set<DURandomItemBag<String>>()
         bagSet.insert(testBag1)
         bagSet.insert(testBag2)
         
@@ -109,15 +109,15 @@ final class RandomItemBagTests: XCTestCase {
             "Two":25,
             "Three":25
         ]
-        let testBag1 = RandomItemBag(itemDictionary1)
+        let testBag1 = DURandomItemBag(itemDictionary1)
         
         let itemDictionary2 = [
             "Four":30,
             "Five":15,
             "Six":25
         ]
-        let testBag2 = RandomItemBag(itemDictionary2)
-        let testBag3 = RandomItemBag(itemDictionary2)
+        let testBag2 = DURandomItemBag(itemDictionary2)
+        let testBag3 = DURandomItemBag(itemDictionary2)
         
         XCTAssertNotEqual(testBag1, testBag2)
         XCTAssertNotEqual(testBag1, testBag3)
@@ -125,7 +125,7 @@ final class RandomItemBagTests: XCTestCase {
     }
     
     func testCodable() {
-        let testBag = RandomItemBag<String>()
+        let testBag = DURandomItemBag<String>()
         
         let itemNames = [
             "One",
@@ -145,7 +145,7 @@ final class RandomItemBagTests: XCTestCase {
         print(jsonString)
         
         let decoder = JSONDecoder()
-        let decodedBag = try! decoder.decode(RandomItemBag<String>.self, from: encoded)
+        let decodedBag = try! decoder.decode(DURandomItemBag<String>.self, from: encoded)
         
         let testResultItem = decodedBag.randomItem()!
         XCTAssertNotNil(testResultItem)
@@ -154,7 +154,7 @@ final class RandomItemBagTests: XCTestCase {
 
     func testPerformance() {
         
-        let testBag = RandomItemBag<String>()
+        let testBag = DURandomItemBag<String>()
         testBag.add("One", withCount: 20)
         testBag.add("Two", withCount: 20)
         testBag.add("Three", withCount: 20)

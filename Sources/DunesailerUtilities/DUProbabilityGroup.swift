@@ -1,6 +1,6 @@
 //  Created by B.T. Franklin on an unknown date prior to 2020
 
-public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
+public struct DUProbabilityGroup<Item: Hashable & Codable>: Hashable {
     
     enum CodingKeys: String, CodingKey {
         case probabilitiesByItem = "probabilities"
@@ -39,7 +39,7 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
         self.total = currentPosition
     }
     
-    public init(copying probabilityGroup: ProbabilityGroup, without item: Item) {
+    public init(copying probabilityGroup: DUProbabilityGroup, without item: Item) {
         guard probabilityGroup.items.contains(item) else {
             fatalError("Probability group does not contain \(item)")
         }
@@ -63,14 +63,14 @@ public struct ProbabilityGroup<Item: Hashable & Codable>: Hashable {
     }
 }
 
-extension ProbabilityGroup: Encodable {
+extension DUProbabilityGroup: Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(probabilitiesByItem, forKey: .probabilitiesByItem)
     }
 }
 
-extension ProbabilityGroup: Decodable {
+extension DUProbabilityGroup: Decodable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         let probabilitiesByItem = try values.decode([Item: Int].self, forKey: .probabilitiesByItem)

@@ -3,7 +3,7 @@
 import XCTest
 @testable import DunesailerUtilities
 
-final class LRUCacheTests: XCTestCase {
+final class DULRUCacheTests: XCTestCase {
     
     class UniqueTestable {
         
@@ -16,7 +16,7 @@ final class LRUCacheTests: XCTestCase {
     }
     
     func testStoreAndRetrieveLowCapacity() {
-        let cache = LRUCache<UniqueTestable>(capacity: 5)
+        let cache = DULRUCache<UniqueTestable>(capacity: 5)
         XCTAssertEqual(5, cache.capacity)
         XCTAssertEqual(0, cache.count)
         
@@ -56,7 +56,7 @@ final class LRUCacheTests: XCTestCase {
     }
     
     func testStoreAndRetrieveHighCapacity() {
-        let cache = LRUCache<UniqueTestable>(capacity: 500)
+        let cache = DULRUCache<UniqueTestable>(capacity: 500)
         XCTAssertEqual(500, cache.capacity)
         XCTAssertEqual(0, cache.count)
         
@@ -97,7 +97,7 @@ final class LRUCacheTests: XCTestCase {
     
     func testPerformance() {
         
-        let cache = LRUCache<UniqueTestable>(capacity: 16)
+        let cache = DULRUCache<UniqueTestable>(capacity: 16)
         
         var uniqueTestables: [UniqueTestable] = []
         for value in 1...32 {
