@@ -3,22 +3,22 @@
 import XCTest
 @testable import DunesailerUtilities
 
-final class DUProbabilityGroupTests: XCTestCase {
+final class ProbabilityGroupTests: XCTestCase {
     
     func testInitializer() {
         
-        let oneGroup = DUProbabilityGroup([
+        let oneGroup = ProbabilityGroup([
             "One":100
         ])
         XCTAssertNotNil(oneGroup)
         
-        let twoGroup = DUProbabilityGroup([
+        let twoGroup = ProbabilityGroup([
             "One":50,
             "Two":50
         ])
         XCTAssertNotNil(twoGroup)
         
-        let fourGroup = DUProbabilityGroup([
+        let fourGroup = ProbabilityGroup([
             "One":25,
             "Two":25,
             "Three":25,
@@ -26,7 +26,7 @@ final class DUProbabilityGroupTests: XCTestCase {
         ])
         XCTAssertNotNil(fourGroup)
         
-        let nonHundredGroup = DUProbabilityGroup([
+        let nonHundredGroup = ProbabilityGroup([
             "One":45,
             "Two":35,
             "Three":17,
@@ -39,7 +39,7 @@ final class DUProbabilityGroupTests: XCTestCase {
         
         let testItem = "Test"
         
-        let testGroup = DUProbabilityGroup([
+        let testGroup = ProbabilityGroup([
             testItem:100
         ])
         
@@ -56,7 +56,7 @@ final class DUProbabilityGroupTests: XCTestCase {
             "Three":50
         ]
         
-        let testGroup = DUProbabilityGroup(itemDictionary)
+        let testGroup = ProbabilityGroup(itemDictionary)
         let itemNames = Set(itemDictionary.keys)
         
         let testResultItem = testGroup.randomItem()
@@ -71,16 +71,16 @@ final class DUProbabilityGroupTests: XCTestCase {
             "Two":25,
             "Three":50
         ]
-        let testGroup1 = DUProbabilityGroup(itemDictionary1)
+        let testGroup1 = ProbabilityGroup(itemDictionary1)
         
         let itemDictionary2 = [
             "Four":33,
             "Five":34,
             "Six":33
         ]
-        let testGroup2 = DUProbabilityGroup(itemDictionary2)
+        let testGroup2 = ProbabilityGroup(itemDictionary2)
         
-        var groupSet = Set<DUProbabilityGroup<String>>()
+        var groupSet = Set<ProbabilityGroup<String>>()
         groupSet.insert(testGroup1)
         groupSet.insert(testGroup2)
         
@@ -95,15 +95,15 @@ final class DUProbabilityGroupTests: XCTestCase {
             "Two":25,
             "Three":50
         ]
-        let testGroup1 = DUProbabilityGroup(itemDictionary1)
+        let testGroup1 = ProbabilityGroup(itemDictionary1)
         
         let itemDictionary2 = [
             "Four":33,
             "Five":34,
             "Six":33
         ]
-        let testGroup2 = DUProbabilityGroup(itemDictionary2)
-        let testGroup3 = DUProbabilityGroup(itemDictionary2)
+        let testGroup2 = ProbabilityGroup(itemDictionary2)
+        let testGroup3 = ProbabilityGroup(itemDictionary2)
         
         XCTAssertNotEqual(testGroup1, testGroup2)
         XCTAssertNotEqual(testGroup1, testGroup3)
@@ -123,13 +123,13 @@ final class DUProbabilityGroupTests: XCTestCase {
             "Nine":10,
             "Ten":10
         ];
-        let testGroup = DUProbabilityGroup(itemDictionary)
+        let testGroup = ProbabilityGroup(itemDictionary)
         
         let encoder = JSONEncoder()
         let encoded = try! encoder.encode(testGroup)
         
         let decoder = JSONDecoder()
-        let decodedGroup = try! decoder.decode(DUProbabilityGroup<String>.self, from: encoded)
+        let decodedGroup = try! decoder.decode(ProbabilityGroup<String>.self, from: encoded)
         
         let itemNames = Set(itemDictionary.keys)
         let testResultItem = decodedGroup.randomItem()
@@ -151,7 +151,7 @@ final class DUProbabilityGroupTests: XCTestCase {
             "Nine":10,
             "Ten":10
         ];
-        let testGroup = DUProbabilityGroup(itemDictionary)
+        let testGroup = ProbabilityGroup(itemDictionary)
         
         self.measure {
             for _ in 1...1000 {

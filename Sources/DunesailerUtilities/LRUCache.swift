@@ -2,7 +2,7 @@
 
 import Foundation
 
-public class DULRUCache<ValueType: AnyObject> {
+public class LRUCache<ValueType: AnyObject> {
     
     public let capacity: Int
     private var valuesByID: [ObjectIdentifier: ValueType]

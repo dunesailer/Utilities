@@ -2,7 +2,7 @@
 
 import Foundation
 
-public class DURandomItemBag<Item: Hashable & Codable>: Codable {
+public class RandomItemBag<Item: Hashable & Codable>: Codable {
     
     enum CodingKeys: String, CodingKey {
         case itemCounts = "itemCounts"
@@ -87,14 +87,14 @@ public class DURandomItemBag<Item: Hashable & Codable>: Codable {
 
 }
 
-extension DURandomItemBag: Hashable {
+extension RandomItemBag: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(self.itemCounts)
     }
 }
 
-extension DURandomItemBag: Equatable {
-    public static func == (lhs: DURandomItemBag<Item>, rhs: DURandomItemBag<Item>) -> Bool {
+extension RandomItemBag: Equatable {
+    public static func == (lhs: RandomItemBag<Item>, rhs: RandomItemBag<Item>) -> Bool {
         return lhs.itemCounts == rhs.itemCounts
     }
 }
