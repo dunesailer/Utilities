@@ -1,5 +1,7 @@
 //  Created by B.T. Franklin on 8/27/19
 
+#if !os(watchOS)
+
 import XCTest
 @testable import DunesailerUtilities
 
@@ -169,3 +171,4 @@ final class RandomItemBagTests: XCTestCase {
     }
     
 }
+#endif

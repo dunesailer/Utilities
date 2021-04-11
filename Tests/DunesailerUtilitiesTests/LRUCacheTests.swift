@@ -1,5 +1,7 @@
 //  Created by B.T. Franklin on 11/9/16.
 
+#if !os(watchOS)
+
 import XCTest
 @testable import DunesailerUtilities
 
@@ -114,3 +116,4 @@ final class LRUCacheTests: XCTestCase {
     }
     
 }
+#endif

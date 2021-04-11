@@ -1,5 +1,7 @@
 //  Created by B.T. Franklin on 1/11/21.
 
+#if !os(watchOS)
+
 import XCTest
 @testable import DunesailerUtilities
 
@@ -32,3 +34,4 @@ final class StringFirstUppercasedTests: XCTestCase {
     }
 
 }
+#endif

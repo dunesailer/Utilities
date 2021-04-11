@@ -1,5 +1,7 @@
 //  Created by B.T. Franklin on 1/4/19
 
+#if !os(watchOS)
+
 import XCTest
 @testable import DunesailerUtilities
 
@@ -59,3 +61,4 @@ final class BoolRandomProbabilityTests: XCTestCase {
     }
 
 }
+#endif

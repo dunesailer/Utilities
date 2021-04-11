@@ -1,6 +1,6 @@
 //  Created by B.T. Franklin on 4/30/18
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 @available(tvOS 10.0, *)

@@ -1,5 +1,7 @@
 //  Created by B.T. Franklin on 1/12/21.
 
+#if !os(watchOS)
+
 import XCTest
 @testable import DunesailerUtilities
 
@@ -43,3 +45,4 @@ final class NSMutableAttributedStringUppercaseFirstCharacterTests: XCTestCase {
         XCTAssertEqual(NSMutableAttributedString(string: "Lowercased string"), mutableString)
     }
 }
+#endif
