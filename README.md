@@ -12,4 +12,4 @@ The Dunesailer Utilities package provides a collection of utilities for use in p
 
 ### Swift Package Manager
 
-Go to *File > Swift Packages > Add Package Dependency* and paste in this link:  `https://github.com/dunesailer/Utilities`
+In Xcode, go to *File > Swift Packages > Add Package Dependency* and paste in this link:  `https://github.com/dunesailer/Utilities`
