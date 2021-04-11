@@ -1,5 +1,4 @@
 # Dunesailer Utilities
-====================
 
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/dunesailer/Utilities/blob/master/LICENSE)
 [![build](https://github.com/dunesailer/Utilities/workflows/build/badge.svg)](https://github.com/dunesailer/Utilities/actions?query=workflow%3Abuild)
