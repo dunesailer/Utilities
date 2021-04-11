@@ -3,22 +3,6 @@
 
 import PackageDescription
 
-#if os(watchOS)
-let targets: [PackageDescription.Target] = [
-    .target(
-        name: "DunesailerUtilities",
-        dependencies: []),
-]
-#else
-let targets: [PackageDescription.Target] = [
-    .target(
-        name: "DunesailerUtilities",
-        dependencies: []),
-    .testTarget(
-        name: "DunesailerUtilitiesTests",
-        dependencies: ["DunesailerUtilities"]),]
-#endif
-
 let package = Package(
     name: "Dunesailer Utilities",
     platforms: [
@@ -31,5 +15,12 @@ let package = Package(
     ],
     dependencies: [
     ],
-    targets: targets
+    targets: [
+        .target(
+            name: "DunesailerUtilities",
+            dependencies: []),
+        .testTarget(
+            name: "DunesailerUtilitiesTests",
+            dependencies: ["DunesailerUtilities"]),
+    ]
 )
