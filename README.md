@@ -6,7 +6,7 @@ Dunesailer Utilities
 [![Swift versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdunesailer%2FUtilities%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/dunesailer/Utilities)
 [![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fdunesailer%2FUtilities%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/dunesailer/Utilities)
 
-The Dunesailer Utilities are a collection of utilities for Swift projects of many types.
+The Dunesailer Utilities is a Swift package containing a collection of utilities for projects of many types.
 
 Though the functionality provided is driven by the specific needs of Dunesailer Research itself, we believe there is value to the broader programmming public contained therein, so we are pleased to make these available in a free and open source format.
 
