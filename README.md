@@ -10,6 +10,14 @@ Dunesailer Utilities
 
 The `Dunesailer Utilities` are a Swift package containing a collection of utilities for projects of many types.
 
+## Features
+
+- An LRU cache implementation (`LRUCache`)
+- A struct for representing reusable groups of probabilities (`ProbabilityGroup`)
+- A class for working with modifiable sets of randomly-selected items (`RandomItemBag`)
+- A property wrapper that maps data values to User Defaults automatically (`propertyWrapper_UserDefaults`)
+- A simple enumeration for working with the binary form of gender (`BinaryGender`)
+- Various extensions to standard datatypes to enhance their functionality
 
 ## Installation
 
@@ -18,3 +26,7 @@ To install the Swift Package, please follow the steps below:
 - Add `https://github.com/dunesailer/Utilities` as a [Swift Package Manager](https://swift.org/package-manager/) dependency to your project.
 - When asked to **Choose Package Options**, use the default settings provided by Xcode.
 - When asked to **Add Package**, add `Dunesailer Utilities` to your desired target(s).
+
+## License
+
+The `Dunesailer Utilities` were written by B.T. Franklin ([@btfranklin](https://github.com/btfranklin)) from 2018 onward and are licensed under the [MIT](https://opensource.org/licenses/MIT) license. See [LICENSE.md](LICENSE.md).
